@@ -16,6 +16,7 @@
 
 package com.hellbilling.kontajnery;
 
+import java.util.Date;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -38,6 +39,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -233,6 +235,9 @@ public class MainActivity extends Activity {
             int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
                     "drawable", getActivity().getPackageName());
             ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+
+            ((TextView) rootView.findViewById(R.id.moj_text_view_id)).setText(
+                    new Date().toString() + "\n" + ARG_PLANET_NUMBER + " = " + planet);
             getActivity().setTitle(planet);
             return rootView;
         }
